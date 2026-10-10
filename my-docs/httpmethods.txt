@@ -1,0 +1,12 @@
+1. Http GET - when you want to get some data from the server 
+when you type some url in the Broswer, it always make GET REquest by default from the server 
+Whenever the sever gets some GET request, it goes to the database, and READ the data and that data is sent to the client 
+
+2. Http POST - when you want to send and mutate some data in the server
+Eg- Forms - in sign up form you fill in the data and click on Create Account, it will make a POST request and {FormData}
+will be send along to Server. Then the Server will see its a POST request, and read FormData and will go to Database and
+will insert this data to the Database
+
+3. Http PUT - if you want to upload a photo or file
+
+4. Http PATCH - to change the data- to change the existing entry in the database. Eg Name
