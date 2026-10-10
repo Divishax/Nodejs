@@ -1,8 +1,8 @@
 // file handling is to put operations on file - creating file, reading file
 const fs = require("fs");
-const os = require("os");
+// const os = require("os");
 
-console.log(os.cpus().length);
+// console.log(os.cpus().length);
 // Default Thread Pool size = 4 
 // Max? - 8core cpu - 8 
 // Nodejs has module os - it gives u ur computer information

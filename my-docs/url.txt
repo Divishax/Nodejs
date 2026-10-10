@@ -1,0 +1,19 @@
+Handling URLs in NodeJs 
+
+URL - Uniform Resource Locator
+
+https://www.divisha.dev/
+
+https:// -> Protocol: Hypertext Transfer Protocol Secure
+Protocol is a set of rules that tells browsers how to communicate with server 
+in https all requests and responses will be encrypted. Here SSL certificate is used 
+in http no SSl certificate
+ws - protocol for web sockets 
+
+/www.divisha.dev -> Domain - user friendly name of ip address of my server
+
+/ -> path - slash means home page 
+
+Query Parameters -> Extra information which we can pass to path
+divisha.dev/about?userId=1&a=2
+its after ? mark in key value pair, + means space
