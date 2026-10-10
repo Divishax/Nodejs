@@ -1,0 +1,51 @@
+Restfull api 
+client sends requests to server 
+server received response from client 
+This has certain rules/standards called Restfull api 
+
+Rule1: Server Client Architechture 
+Server is separate machine and Client is separate machine and so 
+both should not be dependent on each other 
+Eg Response can be text, img, html doc, Json but what should be send to server?
+if data is sent as html doc. Eg GET request of Blogs. Blogs is fetched from database and 
+we made html doc out of it which is send as Response.
+if the client is Browser then the html doc will be rendered on screen - no problem 
+but what if client is Moblile then obv we cant rendered html which is a problem 
+Second problem - we deciding how data should be shown 
+(SERVER SIDE RENDERING - SSR)
+here Client is dependent on the server 
+
+Json
+we can we use XML (old way) or Json
+Json are key value pairs which is raw data 
+json will be send from server to client 
+client (can be mobile) will read json and will render on its own screen
+here Client can independently process data
+
+When to use html doc and when to use JSON??
+
+i. if you are sure that the client is only broser then its good practice to pass data as html. Eg Google uses SSR
+as because no processing of raw data so easier for Client 
+
+ii. But if its a cross platoform - Browser, mobile or ios then use json
+
+Rule2: Always respect http methods
+get, post, put, patch, delete
+GET /user - read users data and return data
+POST /user - handle new user creation
+PATCH /user - update the user
+
+what if route is 
+POST /updateUser - why not use PATCH
+POST /createUser
+GET /getUser - why putting get keyword here
+this is against rules - always use Rules 
+
+html render 
+res.send(), res.render()
+
+json render 
+res.json() - api inside brackets 
+
+Summary - html rendering is fast as it has one less step. if we use client side rendering (CSR) - when we get client side data and we render it 
+on our own is CSR. React uses CSR. React is slow as Here data is fetched then rendered. Html uses SSR.
