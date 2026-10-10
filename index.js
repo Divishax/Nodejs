@@ -1,7 +1,18 @@
 const http = require("http");
 const fs = require("fs");
-const url = require("url");
+// const url = require("url");
 const { console } = require("inspector");
+const express = require("express");
+
+const app = express();
+
+app.get("/", (req,res) => {
+    return res.send("Hello from home");
+})
+app.get("/about", (req,res) => {
+    return res.send("Hello from about page");
+})
+
 
 // const myServer = http.createServer();
 
@@ -34,28 +45,29 @@ const { console } = require("inspector");
 // myServer.listen(8000, () => console.log("Server started"));
 
 
-// HANDLING URLS 
-const myServer = http.createServer((req, res) => {
-    if(req.url === "/favicon.io") return res.end();
+function myHandler(req,res){
     const log = `${Date.now()}: ${req.method} ${req.url} new req received\n`;
     // const myUrl = url.parse(req.url);
     // console.log(myUrl);
     fs.appendFile("log.txt", log, (err,data) => {
-        switch(req.url) {
-            case '/': 
-            if(req.method === "GET") res.end("Home Page");
-            break
-            case '/about': res.end("I am divisha");
-            break
-            case '/signup': 
-            if(req.method === "GET") res.end("This is sign up form");
-            else if(req.method === "POST") {
-                // DB Query
-                res.end("Success");
+            switch(req.url) {
+                case '/': 
+                if(req.method === "GET") res.end("Home Page");
+                break
+                case '/about': res.end("I am divisha");
+                break
+                case '/signup': 
+                if(req.method === "GET") res.end("This is sign up form");
+                else if(req.method === "POST") {
+                    // DB Query
+                    res.end("Success");
+                }
+                default: res.end("404 Not Found");
             }
-            default: res.end("404 Not Found");
-        }
-        res.end("Hello From Server");
-    })
-});
+            res.end("Hello From Server");
+        })
+}
+
+const myServer = http.createServer(app);
+
 myServer.listen(8000, () => console.log("Server started"));
